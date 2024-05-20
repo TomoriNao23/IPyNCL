@@ -1,5 +1,5 @@
 from ipykernel.kernelbase import Kernel
-from IPython.utils.path import get_ipython_dir
+from IPython.paths import locate_profile
 from pexpect import EOF,spawn
 import pexpect
 from nclreplwrap import REPLWrapper as replw
@@ -30,7 +30,7 @@ class NCLKernel(Kernel):
         
         self.pexpect_version=pexpect.__version__    
         try:
-            self.hist_file = os.path.join(get_ipython_dir(),'ncl_kernel.hist')
+            self.hist_file = os.path.join(locate_profile,'ncl_kernel.hist')
         except:
             self.hist_file = None
             self.log.warn('No default profile found, history unavailable')
