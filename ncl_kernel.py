@@ -11,7 +11,7 @@ import sys
 import time
 
 if sys.version_info[0] == 3:
-    import _pickle as cPickle
+    import pickle as cPickle
 else:
     import cPickle
 
